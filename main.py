@@ -1,4 +1,5 @@
 import random
+import json
 
 
 def generar_id():
@@ -31,29 +32,34 @@ def generar_contrasena():
     return contrasena
 
 
-def almacenar_data(id, contrasena):
+def crear_data(id, contrasena):
     my_data = {}
-    if not my_data:
-        my_data = {id: contrasena}
-      
-            
+    my_data['clientes'] = []
+
+    my_data['clientes'].append({
+        id : contrasena
+    })
+
+    with open("./archivos/data.json", "w", encoding="utf-8") as f:
+        json.dump(my_data, f, indent=4)
     return my_data
-    
-    
+
 
 
 def run():
     usuario = input('Escribe tu nombre: ')
     contrasena = generar_contrasena()
     id = generar_id()
-    dat = almacenar_data(id, contrasena)
+    dat = crear_data(id, contrasena)
+    # dat_actualizada = alctualizar_data(id, contrasena)
     
     
     print(f'Hola {usuario.upper()} tu id es: {id} y tu contraseña es: {contrasena}')
     print(dat)
+    # print(dat_actualizada)
+    
 
 
 if __name__ == '__main__':
-   
-
-         run()
+    # while True:
+    run()
