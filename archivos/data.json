@@ -1,7 +1,12 @@
 {
     "clientes": [
         {
-            "17904": "^aaQN&1Frb4.ei^"
+            "nombre": "carlos",
+            "id": "42755",
+            "contrasena": "tL#d\u00d1xA[sJRLce\u00f1",
+            "edad": "12",
+            "pais": "peru",
+            "dominio": "facebook"
         }
     ]
 }

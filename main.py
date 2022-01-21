@@ -32,13 +32,17 @@ def generar_contrasena():
     return contrasena
 
 
-def crear_data(id, contrasena):
+def crear_data(nombre, id, contrasena, edad, pais, dominio):
     my_data = {}
     my_data['clientes'] = []
 
     my_data['clientes'].append({
-        id : contrasena
-    })
+        'nombre': nombre,
+        'id': id,
+        'contrasena': contrasena,
+        'edad': edad,
+        'pais': pais,
+        'dominio': dominio})
 
     with open("./archivos/data.json", "w", encoding="utf-8") as f:
         json.dump(my_data, f, indent=4)
@@ -47,19 +51,22 @@ def crear_data(id, contrasena):
 
 
 def run():
-    usuario = input('Escribe tu nombre: ')
+    nombre = input('Escribe tu nombre: ')
+    edad = input('Escribe tu edad: ')
+    pais = input('Escribe tu país: ')
+    dominio = input('En que plataforma te encuentras: ')
     contrasena = generar_contrasena()
     id = generar_id()
-    dat = crear_data(id, contrasena)
+    dat = crear_data(nombre, id, contrasena, edad, pais, dominio)
     # dat_actualizada = alctualizar_data(id, contrasena)
     
     
-    print(f'Hola {usuario.upper()} tu id es: {id} y tu contraseña es: {contrasena}')
+    print(f'Hola {nombre.upper()} tu id es: {id} y tu contraseña es: {contrasena}')
     print(dat)
-    # print(dat_actualizada)
+   
     
 
 
 if __name__ == '__main__':
-    # while True:
-    run()
+    while True:
+        run()
